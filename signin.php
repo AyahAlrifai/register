@@ -7,6 +7,7 @@
   <meta charset="utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="images/JUST-Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/signin.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -27,20 +28,45 @@
 		</div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-				<li><a href="#" style="color:#EDD700">Home</a></li>
-		    <li><a href="#" style="color:#EDD700">Schedual</a></li>
+				<li><a href="index.html" style="color:#EDD700">Home</a></li>
+		    <li><a href="schedual.php" style="color:#EDD700">Schedual</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-			<!--<li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
-		    <li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				<li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>-->
+			<li><a href="signup.php"  style="color:#EDD700"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
+		    <li><a href="signin.php"  style="color:#EDD700"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<!--<li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>-->
       </ul>
     </div>
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
 	<div class="container">
-<!-- write your code here :) -->
-	</div>
+    <div class="container" >
+    <div class="login-box">
+    <div class="row">
+    <div class="login-left">
+    <div class="login-right">
+    <h2> Sign In </h2>
+    <form action="" method="POST">
+    <div class="form-group">
+    <label>  Student Id </label>
+    <input type="text" name="id"  class="form-control">
+    </div>
+    <div class="form-group">
+    <label> Password </label>
+    <input type="password" name="password1" class="form-control">
+    </div>
+    <input type="submit" value="signin" class="btn btn-primary">
+    <br>
+    <br>
+    <p>Don't have an account? <a href="signup.html">Sign up now</a>.</p>
+    <br>
+    <br>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+  	</div>
 </body>
 </html>

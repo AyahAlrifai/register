@@ -4,6 +4,7 @@
   <title>LABs Registration</title>
 	<style media="screen">
 	</style>
+  <link rel="stylesheet" type="text/css" href="css/schedual.css">
   <meta charset="utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="images/JUST-Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#2E3951">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#2E3951;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -39,83 +40,37 @@
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
-	<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:70px;padding-left:0px,padding:right:0px">
-	    <ol class="carousel-indicators">
-	      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	      <li data-target="#myCarousel" data-slide-to="1"></li>
-	      <li data-target="#myCarousel" data-slide-to="2"></li>
-	    </ol>
-	    <div class="carousel-inner">
-	      <div class="item active">
-	        <img src="images/a.jpg" alt="Los Angeles" style="width:100%;">
-	      </div>
-	      <div class="item">
-	        <img src="images/b.jpg" alt="Chicago" style="width:100%;">
-	      </div>
-	      <div class="item">
-	        <img src="images/c.jpg" alt="New York" style="width:100%;">
-	      </div>
-	    </div>
-	    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-	      <span class="glyphicon glyphicon-chevron-left"></span>
-	      <span class="sr-only">Previous</span>
-	    </a>
-	    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-	      <span class="glyphicon glyphicon-chevron-right"></span>
-	      <span class="sr-only">Next</span>
-	    </a>
-	  </div>
-	</div>
-	<div class="container">
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
-		<p> hello</p>
+<div class="margin header">
+  Course Schedule <img src="images/JUST-Logo.png" class='image' style="display:inline" alt="" width="100px" height="100px">الجدول الدراسي
+</div>
+    <?php
+    		$con=mysqli_connect("localhost","root","HaYa.IaFiRlA.79","register");
+    		if(!$con)
+    			die("not connected".mysqli_connect_error());
+        $sql="select * from Structure";
+    		$result=mysqli_query($con,$sql);
+        $i=0;
+        $table="<div class='margin'><table class='table mid table-sm'><tr style='background-color:#2E3951;color:#EDD700'><th>Symbol</th><th>Section</th><th>Name</th><th>Day</th><th>Time</th><th>Hall</th><th>Registered</th><th>Capacity</th></tr>";
+         while ($row=mysqli_fetch_row($result)) {
+           if($i%2==0){
+             $table.="<tr style='background-color:#F3F382'>";
+           }
+           else {
+             $table.="<tr style='background-color:#EDD700'>";
+           }
+           $i+=1;
+           foreach ($row as $key => $value) {
+             $table.="<td>".$value."</td>";
+           }
+           $capacity=mysqli_fetch_row(mysqli_query($con,"select * from Hall where name='"+$rpw['hall']+"'"));
+           $table.="<td>".$capacity."</td>";
 
-	</div>
+           $table.="</tr>";
 
+         }
+         $table.="</table></div>";
+         echo $table;
+        mysqli_close($con);
+    	?>
 </body>
 </html>
