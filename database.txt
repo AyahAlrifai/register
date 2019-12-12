@@ -1,3 +1,8 @@
+create table Hall(
+name varchar(9) not null primary key,
+capacity int(3) not null
+);
+
 create table Structure(
 symbol varchar(6) not null,
 section int(2) not null ,
@@ -5,13 +10,10 @@ name varchar(100) not null,
 day varchar(3) not null,
 time date not null,
 hall varchar(9) not null,
+registered int(3) not null,
 primary key(symbol,section),
 FOREIGN KEY (hall) REFERENCES Hall(name)
 );
-
-create table Hall(
-name varchar(9) not null primary key,
-capacity int(3) not null);
 
 create table Student(
 name varchar(10) not null,
@@ -37,26 +39,24 @@ insert into Hall values('CIS03',25);
 insert into Hall values('CIS05',20);
 insert into Hall values('CIS06',23);
 
-insert into Structure values ('CIS221',1,'Fundamentals of Database System','SUN','2020-1-1 14:30:00','CIS02');
-insert into Structure values ("CIS221",2,"Fundamentals of Database System","MON",'2020-1-1 08:30:00','CIS06');
-insert into Structure values ("CIS221",3,"Fundamentals of Database System","MON",'2020-1-1 13:00:00','CIS03');
-insert into Structure values ("CIS221",4,"Fundamentals of Database System","TUE",'2020-1-1 08:30:00','CIS03');
-insert into Structure values ("CIS221",5,"Fundamentals of Database System","TUE",'2020-1-1 11:30:00','CIS03');
-insert into Structure values ("CIS221",6,"Fundamentals of Database System","WED",'2020-1-1 08:30:00','CIS02');
-insert into Structure values ("CIS221",7,"Fundamentals of Database System","WED",'2020-1-1 10:00:00','CIS03');
-insert into Structure values ("CIS221",8,"Fundamentals of Database System","WED",'2020-1-1 14:30:00','CIS06');
-insert into Structure values ("CIS221",9,"Fundamentals of Database System","THU",'2020-1-1 14:30:00','CIS02');
-insert into Structure values ("CIS341",1,"Web Application Development","MON",'2020-1-1 11:30:00','CIS02');
-insert into Structure values ("CIS341",2,"Web Application Development","MON",'2020-1-1 14:30:00','CIS03');
-insert into Structure values ("CIS341",3,"Web Application Development","TUE",'2020-1-1 14:30:00','CIS02');
-insert into Structure values ("CIS341",4,"Web Application Development","WED",'2020-1-1 08:30:00','CIS06');
-insert into Structure values ("CIS341",5,"Web Application Development","THU",'2020-1-1 08:30:00','CIS03');
-insert into Structure values ("CIS421",1,"Database Applications","SUN",'2020-1-1 08:30:00','CIS03');
-insert into Structure values ("CIS421",2,"Database Applications","MON",'2020-1-1 14:30:00','CIS06');
-insert into Structure values ("CIS421",3,"Database Applications","WED",'2020-1-1 08:30:00','CIS03');
-insert into Structure values ("CIS421",4,"Database Applications","THU",'2020-1-1 14:30:00','CIS03');
-insert into Structure values ("CIS441",1,"Business Data Comminication","MON",'2020-1-1 08:30:00','CIS02');
-insert into Structure values ("CIS441",2,"Business Data Comminication","MON",'2020-1-1 14:30:00','CIS05');
-insert into Structure values ("CIS441",3,"Business Data Comminication","WED",'2020-1-1 11:30:00','CIS02');
-
-
+insert into Structure values ('CIS221',1,'Fundamentals of Database System','SUN','14:30:00','CIS02',0);
+insert into Structure values ("CIS221",2,"Fundamentals of Database System","MON",'08:30:00','CIS06',0);
+insert into Structure values ("CIS221",3,"Fundamentals of Database System","MON",'13:00:00','CIS03',0);
+insert into Structure values ("CIS221",4,"Fundamentals of Database System","TUE",'08:30:00','CIS03',0);
+insert into Structure values ("CIS221",5,"Fundamentals of Database System","TUE",'11:30:00','CIS03',0);
+insert into Structure values ("CIS221",6,"Fundamentals of Database System","WED",'08:30:00','CIS02',0);
+insert into Structure values ("CIS221",7,"Fundamentals of Database System","WED",'10:00:00','CIS03',0);
+insert into Structure values ("CIS221",8,"Fundamentals of Database System","WED",'14:30:00','CIS06',0);
+insert into Structure values ("CIS221",9,"Fundamentals of Database System","THU",'14:30:00','CIS02',0);
+insert into Structure values ("CIS341",1,"Web Application Development","MON",'11:30:00','CIS02',0);
+insert into Structure values ("CIS341",2,"Web Application Development","MON",'14:30:00','CIS03',0);
+insert into Structure values ("CIS341",3,"Web Application Development","TUE",'14:30:00','CIS02',0);
+insert into Structure values ("CIS341",4,"Web Application Development","WED",'08:30:00','CIS06',0);
+insert into Structure values ("CIS341",5,"Web Application Development","THU",'08:30:00','CIS03',0);
+insert into Structure values ("CIS421",1,"Database Applications","SUN",'08:30:00','CIS03',0);
+insert into Structure values ("CIS421",2,"Database Applications","MON",'14:30:00','CIS06',0);
+insert into Structure values ("CIS421",3,"Database Applications","WED",'08:30:00','CIS03',0);
+insert into Structure values ("CIS421",4,"Database Applications","THU",'14:30:00','CIS03',0);
+insert into Structure values ("CIS441",1,"Business Data Communication","MON",'08:30:00','CIS02',0);
+insert into Structure values ("CIS441",2,"Business Data Communication","MON",'14:30:00','CIS05',0);
+insert into Structure values ("CIS441",3,"Business Data Communication","WED",'11:30:00','CIS02',0);

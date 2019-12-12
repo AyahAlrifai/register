@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
   <title>LABs Registration</title>
-	<style media="screen">
-	</style>
   <link rel="stylesheet" type="text/css" href="css/schedual.css">
   <meta charset="utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="images/JUST-Logo.png" />
@@ -13,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#2E3951;">
+<nav class="navbar navbar-inverse " style="background-color:#2E3951;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -40,35 +38,38 @@
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
-<div class="margin header">
-  Course Schedule <img src="images/JUST-Logo.png" class='image' style="display:inline" alt="" width="100px" height="100px">الجدول الدراسي
+<div class="container" style="border-color:#2E3951;border-style:groove;font-size:xx-large;text-align:center;border-radius:100px;padding:10px;margin:3%;background-color:#FFFFCC;color:#2E3951;font-weight: 900;">
+  Course Schedule <img src="images/JUST-Logo.png" class='image' style="display:inline" alt="" width="60px" height="60px">الجدول الدراسي
 </div>
     <?php
     		$con=mysqli_connect("localhost","root","HaYa.IaFiRlA.79","register");
     		if(!$con)
     			die("not connected".mysqli_connect_error());
-        $sql="select * from Structure";
+        $sql="select symbol,section,name,day,DATE_FORMAT(time,'%H:%i:%s'),hall,registered from Structure ORDER BY symbol,section";
     		$result=mysqli_query($con,$sql);
         $i=0;
-        $table="<div class='margin'><table class='table mid table-sm'><tr style='background-color:#2E3951;color:#EDD700'><th>Symbol</th><th>Section</th><th>Name</th><th>Day</th><th>Time</th><th>Hall</th><th>Registered</th><th>Capacity</th></tr>";
-         while ($row=mysqli_fetch_row($result)) {
+        $table="<div class='container'><table class='table table-sm text-center'>";
+        $table.="<thead><tr style='background-color:#2E3951;color:#EDD700;'>";
+        #style='text-align:center; because text-center class not work in thead !!!
+        $table.="<th style='text-align:center;'>Symbol</th><th style='text-align:center;'>Section</th><th style='text-align:center;'>Name</th><th style='text-align:center;'>Day</th><th style='text-align:center;'>Time</th><th style='text-align:center;'>Hall";
+        $table.="</th><th style='text-align:center;'>Registered</th><th style='text-align:center;'>Capacity</th></tr></thead><tbody>";
+         while ($row=mysqli_fetch_row($result)){
            if($i%2==0){
-             $table.="<tr style='background-color:#F3F382'>";
+             $table.="<tr style='background-color:#FFFFCC'>";
            }
            else {
              $table.="<tr style='background-color:#EDD700'>";
            }
            $i+=1;
-           foreach ($row as $key => $value) {
-             $table.="<td>".$value."</td>";
+           foreach ($row as $key => $value){
+               $table.="<td>".$value."</td>";
+
            }
-           $capacity=mysqli_fetch_row(mysqli_query($con,"select * from Hall where name='"+$rpw['hall']+"'"));
-           $table.="<td>".$capacity."</td>";
-
+           $capacity=mysqli_fetch_row(mysqli_query($con,"select capacity from Hall where name='$row[5]'"));
+           $table.="<td>".$capacity[0]."</td>";
            $table.="</tr>";
-
          }
-         $table.="</table></div>";
+         $table.="</tbody></table></div>";
          echo $table;
         mysqli_close($con);
     	?>

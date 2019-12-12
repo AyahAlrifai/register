@@ -26,6 +26,7 @@
 			</a>
 			<p class="navbar-text"  style="color:#EDD700;font-weight:bold;">Jordan University of Science and Technology</p>
 		</div>
+    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 				<li><a href="index.html" style="color:#EDD700">Home</a></li>
