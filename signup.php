@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#2E3951">
+<nav class="navbar navbar-inverse navbar-expand-sm" style="background-color:#2E3951">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -26,7 +26,6 @@
 			</a>
 			<p class="navbar-text"  style="color:#EDD700;font-weight:bold;">Jordan University of Science and Technology</p>
 		</div>
-    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 				<li><a href="index.html" style="color:#EDD700">Home</a></li>
@@ -48,32 +47,33 @@
     <div class="login-left">
     <div class="login-right">
     <h2> Sign Up </h2>
-    <form action="" method="POST">
+    <form action="signin.php" method="POST">
     <p><span class="error">* required field</span></p>
     <div class="form-group">
-    <label>  Student Id </label>
+    <label>  Student Id* </label>
     <input type="text" name="id" value="" class="form-control">
+    </div>
     <div class="form-group">
-    <label> Name </label>
+    <label> Name* </label>
     <input type="text" name="name" value="" class="form-control">
     </div>
     <div class="form-group">
-    <label> Age </label>
+    <label> Age* </label>
     <input type="text" name="age" value="" class="form-control">
     </div>
     <div class="form-group">
-    <label> Password </label>
+    <label> Password* </label>
     <input type="password" name="password1" value="" class="form-control">
     </div>
     <div class="form-group">
-    <label> Repeat Password </label>
+    <label> Repeat Password* </label>
     <input type="password" name="password2" value="" class="form-control">
     </div>
     <input type="submit" value="signup" class="btn btn-primary">
     <input type="reset" class="btn btn-default" value="clear">
     <br>
     <br>
-    <p>Already have an account? <a href="signin.html">Login here</a>.</p>
+    <p>Already have an account? <a href="signin.php">Login here</a>.</p>
     <br>
     <br>
     </form>

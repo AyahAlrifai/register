@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse " style="background-color:#2E3951;">
+<nav class="navbar navbar-inverse navbar-expand-sm" style="background-color:#2E3951;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -38,7 +38,7 @@
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
-<div class="container" style="border-color:#2E3951;border-style:groove;font-size:xx-large;text-align:center;border-radius:100px;padding:10px;margin:3%;background-color:#FFFFCC;color:#2E3951;font-weight: 900;">
+<div class="container" style="border-color:#2E3951;border-style:groove;font-size:xx-large;text-align:center;border-radius:100px;padding:10px;margin:3%;background-color:#FFFF99;color:#2E3951;font-weight: 900;">
   Course Schedule <img src="images/JUST-Logo.png" class='image' style="display:inline" alt="" width="60px" height="60px">الجدول الدراسي
 </div>
     <?php
@@ -55,7 +55,7 @@
         $table.="</th><th style='text-align:center;'>Registered</th><th style='text-align:center;'>Capacity</th></tr></thead><tbody>";
          while ($row=mysqli_fetch_row($result)){
            if($i%2==0){
-             $table.="<tr style='background-color:#FFFFCC'>";
+             $table.="<tr style='background-color:#FFFF99'>";
            }
            else {
              $table.="<tr style='background-color:#EDD700'>";

@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#2E3951">
+<nav class="navbar navbar-inverse navbar-expand-sm" style="background-color:#2E3951">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -56,10 +56,14 @@
     <label> Password </label>
     <input type="password" name="password1" class="form-control">
     </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="switch1" name="example">
+      <label class="custom-control-label" for="switch1">login as admin</label>
+    </div>
     <input type="submit" value="signin" class="btn btn-primary">
     <br>
     <br>
-    <p>Don't have an account? <a href="signup.html">Sign up now</a>.</p>
+    <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
     <br>
     <br>
     </form>
