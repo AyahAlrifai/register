@@ -8,12 +8,14 @@ symbol varchar(6) not null,
 section int(2) not null ,
 name varchar(100) not null,
 day varchar(3) not null,
-time date not null,
+time time not null,
 hall varchar(9) not null,
 registered int(3) not null,
-primary key(symbol,section),
-FOREIGN KEY (hall) REFERENCES Hall(name)
+primary key(symbol,section)
 );
+
+//not work why?!
+SELECT Structure.*,Hall.capacity FROM Structure LEFT JOIN Hall ON Structure.hall = Hall.name;
 
 create table Student(
 name varchar(10) not null,

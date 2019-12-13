@@ -45,7 +45,7 @@
     		$con=mysqli_connect("localhost","root","HaYa.IaFiRlA.79","register");
     		if(!$con)
     			die("not connected".mysqli_connect_error());
-        $sql="select symbol,section,name,day,DATE_FORMAT(time,'%H:%i:%s'),hall,registered from Structure ORDER BY symbol,section";
+        $sql="SELECT Structure.*,Hall.capacity FROM Structure LEFT JOIN Hall ON Structure.hall = Hall.name order by Structure.symbol,Structure.section";
     		$result=mysqli_query($con,$sql);
         $i=0;
         $table="<div class='container'><table class='table table-sm text-center'>";
@@ -63,10 +63,7 @@
            $i+=1;
            foreach ($row as $key => $value){
                $table.="<td>".$value."</td>";
-
            }
-           $capacity=mysqli_fetch_row(mysqli_query($con,"select capacity from Hall where name='$row[5]'"));
-           $table.="<td>".$capacity[0]."</td>";
            $table.="</tr>";
          }
          $table.="</tbody></table></div>";
