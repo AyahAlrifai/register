@@ -1,3 +1,13 @@
+<?php
+include('login.php'); // Includes Login Script
+if(isset($_SESSION['login_user'])){
+	if($_SESSION['login_user']=="student")
+		header("location: profile.php"); // Redirecting To Profile Page
+	else
+		header("location: admin.php");
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +17,6 @@
   <meta charset="utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="images/JUST-Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/signin.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -40,37 +49,24 @@
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
-	<div class="container">
-    <div class="container" >
-    <div class="login-box">
-    <div class="row">
-    <div class="login-left">
-    <div class="login-right">
-    <h2> Sign In </h2>
-    <form action="" method="POST">
-    <div class="form-group">
-    <label>  Student Id </label>
-    <input type="text" name="id"  class="form-control">
-    </div>
-    <div class="form-group">
-    <label> Password </label>
-    <input type="password" name="password1" class="form-control">
-    </div>
-    <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="switch1" name="example">
-      <label class="custom-control-label" for="switch1">login as admin</label>
-    </div>
-    <input type="submit" value="signin" class="btn btn-primary">
-    <br>
-    <br>
-    <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
-    <br>
-    <br>
+<div style="  border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;width:500px;margin:10% auto;" >
+    <h1 style="text-align:center;">Sign in</h1>
+    <div style="margin-left:5%;margin-right:5%;">
+      <form action="" method="POST">
+        <div class="form-group">
+          <label>  Student Id </label>
+          <input type="text" name="id"  class="form-control">
+        </div>
+        <div class="form-group">
+          <label> Password </label>
+          <input type="password" name="password1" class="form-control">
+        </div>
+        <input type="submit" value="signin" class="btn" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
+        <br><br>
+        <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
+        <br><br>
+      </div>
     </form>
-    </div>
-    </div>
-    </div>
-    </div>
-  	</div>
+</div>
 </body>
 </html>

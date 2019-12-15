@@ -42,16 +42,16 @@
   Course Schedule <img src="images/JUST-Logo.png" class='image' style="display:inline" alt="" width="60px" height="60px">الجدول الدراسي
 </div>
     <?php
-    		$con=mysqli_connect("localhost","root","HaYa.IaFiRlA.79","register");
+    		$con=mysqli_connect("localhost","root","","labs_registration_system");
     		if(!$con)
     			die("not connected".mysqli_connect_error());
-        $sql="SELECT Structure.*,Hall.capacity FROM Structure LEFT JOIN Hall ON Structure.hall = Hall.name order by Structure.symbol,Structure.section";
+        $sql="SELECT lab.*,hall.Capacity FROM lab LEFT JOIN hall ON lab.hall = hall.hallName order by lab.symbol,lab.section";
     		$result=mysqli_query($con,$sql);
         $i=0;
         $table="<div class='container'><table class='table table-sm text-center'>";
         $table.="<thead><tr style='background-color:#2E3951;color:#EDD700;'>";
         #style='text-align:center; because text-center class not work in thead !!!
-        $table.="<th style='text-align:center;'>Symbol</th><th style='text-align:center;'>Section</th><th style='text-align:center;'>Name</th><th style='text-align:center;'>Day</th><th style='text-align:center;'>Time</th><th style='text-align:center;'>Hall";
+        $table.="<th style='text-align:center;'>Symbol</th><th style='text-align:center;'>Name</th><th style='text-align:center;'>Section</th><th style='text-align:center;'>Day</th><th style='text-align:center;'>Time</th><th style='text-align:center;'>Hall";
         $table.="</th><th style='text-align:center;'>Registered</th><th style='text-align:center;'>Capacity</th></tr></thead><tbody>";
          while ($row=mysqli_fetch_row($result)){
            if($i%2==0){
