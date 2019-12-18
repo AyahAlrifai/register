@@ -1,10 +1,12 @@
 <?php
+$symbol=$_GET["symbol"];
+$section=$_GET["section"];
     $filepath = "student.txt";
     $myfile = fopen($filepath, "w");
     $con=mysqli_connect("localhost","root","HaYa.IaFiRlA.79","labs_registration_system");
     if(!$con)
       die("not connected".mysqli_connect_error());
-    $sql="SELECT student.ID,student.Name FROM student INNER JOIN studentlabs ON student.ID = studentlabs.studentID and studentlabs.labSymbol='CIS341' and studentlabs.Section=2";
+    $sql="SELECT student.ID,student.Name FROM student INNER JOIN studentlabs ON student.ID = studentlabs.studentID and studentlabs.labSymbol='$symbol' and studentlabs.Section='$section'";
     $result=mysqli_query($con,$sql);
     $output="$symbol-$section\nStudent id\tStudent name\n";
      while ($row=mysqli_fetch_row($result)){
