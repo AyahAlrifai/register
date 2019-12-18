@@ -50,16 +50,18 @@
 </style>
 </head>
 <body>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-      <label for="symbol">symbol</label>
-      <input type="text" name="symbol" value="<?php echo htmlspecialchars($symbol);?>">
-      <span style="color:red"><?php echo $symbolerror;?></span>
-      <label for="section">section</label>
-      <input type="text" name="section" value="<?php echo htmlspecialchars($section); ?>">
-      <span style="color:red" id="p2"><?php echo $sectionerror;?></span>
-      <input type="submit" name="download" value="download">
-      <br>
-      <span style="color:red" id="p2"><?php echo $omeThingError;?></span>
-    </form>
+  <div style="border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;margin:5% auto;" >
+    <p style="text-align:center">Download Students Info in specific section</p>
+        <form class="form-inline" style="padding-left:30px;padding-bottom:30px;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+          <label class="control-label" for="symbol">symbol</label>
+          <input type="text" name="symbol" value="<?php echo htmlspecialchars($symbol);?>">
+          <label class="control-label" for="section">section</label>
+          <input type="text" name="section" value="<?php echo htmlspecialchars($section); ?>">
+          <input type="submit" name="download" value="download" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
+          <span style="color:red;"><?php echo $symbolerror;?></span>
+          <span style="color:red;"><?php echo $sectionerror;?></span>
+          <span style="color:red;padding-right:10%;" id="p2"><?php echo $omeThingError;?></span>
+        </form>
+    </div>
 </body>
 </html>
