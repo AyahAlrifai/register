@@ -41,11 +41,6 @@
 				<li><a href="index.html" style="color:#EDD700">Home</a></li>
 		    <li><a href="schedual.php" style="color:#EDD700">Schedual</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-		<li><a href="signup.php"  style="color:#EDD700"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
-		    <li><a href="signin.php"  style="color:#EDD700"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					<!--<li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>-->
-      </ul>
     </div>
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
@@ -85,8 +80,8 @@
       <input type="reset" class="btn btn-default" value="clear" style="color:#2E3951;font-weight:bold;">
       <br><br>
       <p>Already have an account? <a href="signin.php">Login here</a>.</p>
-      <br><br>
       <span style="color:red"><?php echo $done;?></span>
+      <br><br>
     </div>
   </form>
 </div>

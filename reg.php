@@ -16,8 +16,6 @@ $error="GGG";
 $temp="";
 $temp="<script>document.writeln(val);</script>";
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["id"]))
     $IdError = "ID is required";
@@ -50,19 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$pass1="";
 			$pass2="";
 		}
-
-
 	}
 	else
 	{
 		$pass1=$_POST["password1"];
 		$pass2=$_POST["password2"];
 	}
-
-
 	$age=$_POST["age"];
-
-
 	if($notMatchError == "" and $invalidError == "" and $NameError == "" and $IdError == "" and $_POST["password1"]!="")
 	{
 		$conn=mysqli_connect("localhost","root","","labs_registration_system");
@@ -76,11 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$id="";
 			$pass1="";
 			$pass2="";
-			header("location:index.html");
-
+			header("location:signin.php");
 		}
-
-
 		else
 		{
 			$done="Something Wrong ";

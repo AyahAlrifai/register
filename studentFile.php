@@ -3,7 +3,7 @@ $symbol=$_GET["symbol"];
 $section=$_GET["section"];
     $filepath = "student.txt";
     $myfile = fopen($filepath, "w");
-    $con=mysqli_connect("localhost","root","HaYa.IaFiRlA.79","labs_registration_system");
+    $con=mysqli_connect("localhost","root","","labs_registration_system");
     if(!$con)
       die("not connected".mysqli_connect_error());
     $sql="SELECT student.ID,student.Name FROM student INNER JOIN studentlabs ON student.ID = studentlabs.studentID and studentlabs.labSymbol='$symbol' and studentlabs.Section='$section'";

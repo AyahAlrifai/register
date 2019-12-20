@@ -2,10 +2,9 @@
 include('login.php'); // Includes Login Script
 if(isset($_SESSION['login_user'])){
 	if($_SESSION['login_user']=="student")
-		header("location: profile.php"); // Redirecting To Profile Page
+		header("location: student.php"); // Redirecting To Profile Page
 	else
 		header("location: admin.php");
-
 }
 ?>
 <!DOCTYPE html>
@@ -40,32 +39,30 @@ if(isset($_SESSION['login_user'])){
 				<li><a href="index.html" style="color:#EDD700">Home</a></li>
 		    <li><a href="schedual.php" style="color:#EDD700">Schedual</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-			<li><a href="signup.php"  style="color:#EDD700"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
-		    <li><a href="signin.php"  style="color:#EDD700"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				<!--<li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>-->
-      </ul>
     </div>
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
-<div style="  border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;width:500px;margin:10% auto;" >
+<div style="border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;width:500px;margin:10% auto;" >
     <h1 style="text-align:center;">Sign in</h1>
     <div style="margin-left:5%;margin-right:5%;">
-      <form action="" method="POST">
-        <div class="form-group">
-          <label>  Student Id </label>
-          <input type="text" name="id"  class="form-control">
-        </div>
-        <div class="form-group">
-          <label> Password </label>
-          <input type="password" name="password1" class="form-control">
-        </div>
-        <input type="submit" value="signin" class="btn" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
-        <br><br>
-        <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
-        <br><br>
-      </div>
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+				<div class="form-group">
+				<label>  UserName </label>
+				<input type="text" name="id"  class="form-control">
+				</div>
+				<div class="form-group">
+				<label> Password </label>
+				<input type="password" name="password1"  class="form-control">
+				<br>
+				<span style="color:#FF0000"><?php echo $error;?></span>
+				</div>
+				<input type="submit" name="submit" value="signin" class="btn btn-primary"  style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
+				<br>
+				<br>
+				<p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
+				<br>
+				<br>
     </form>
 </div>
 </body>
