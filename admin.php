@@ -49,7 +49,6 @@ function start()
   document.getElementById("labs").insertAdjacentHTML("beforeBegin",newhtml);
   //if(updateButton !=null)
   //updateButton.addEventListener("click",addbuttonPressed,false);
-
   //document.write(newhtml);
   //el.insertAdjacentHTML("afterBegin",newhtml);
   //el.parentNode.removeChild(el);
@@ -82,7 +81,6 @@ function start()
         $symbolerror = "Symbol is required";
      else
     	 $symbol=$_POST["symbol"];
-
        if (empty($_POST["section"]))
         $sectionerror = "Section is required";
        else
@@ -143,9 +141,9 @@ function start()
     </div>
     <hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
   </nav>
-  <div style="border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;margin:5% auto;" >
+  <div style="border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;margin-left:5%;margin-right:5%;" >
     <p style="text-align:center;margin-top:3px;">Download Students Info in specific section</p>
-        <form class="form-inline" style="padding:10px;margin-left:25%;margin-right:25%;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <form class="form-inline" style="padding:10px;margin-left:20%;margin-right:20%;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
           <label class="control-label" for="symbol">symbol</label>
           <input type="text" name="symbol" value="<?php echo htmlspecialchars($symbol);?>">
           <label class="control-label" for="section">section</label>
