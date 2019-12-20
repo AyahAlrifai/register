@@ -63,9 +63,7 @@ function start()
   type=splitID[0];
   if(type=="delete")
   {
-  itemId=event.target.parentNode.parentNode.id;
-  var el=document.getElementById(itemId);
-  el.parentNode.removeChild(el);
+  window.open("delete.php?symbol='"+splitID[1]+"'&section="+splitID[2]);
   }
   else if (type=="update")
   {
@@ -153,6 +151,7 @@ function start()
           <label class="control-label" for="section">section</label>
           <input type="text" name="section" value="<?php echo htmlspecialchars($section); ?>">
           <input type="submit" name="download" value="download" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
+          <br>
           <span style="color:red;"><?php echo $symbolerror;?></span>
           <span style="color:red;"><?php echo $sectionerror;?></span>
           <span style="color:red;padding-right:10%;" id="p2"><?php echo $omeThingError;?></span>
@@ -161,7 +160,7 @@ function start()
     <div class="container" style="margin:5% auto;"><table class="table table-sm text-center" name="labs" id="labs">
     <thead>
     <tr style="background-color:#2E3951;color:#EDD700;">
-    <td>Symbol</td><td>Name</td><td>Section</td><td>Day</td><td>Time</td><td>Hall</td><td>Capacity</td><td colspan="2">Actions</td>
+    <td>Symbol</td><td>Name</td><td>Section</td><td>Day</td><td>Time</td><td>Hall</td><td>Registered</td><td colspan="2">Actions</td>
     </tr>
     </thead>
     <tbody>
