@@ -3,8 +3,11 @@ include('login.php'); // Includes Login Script
 if(isset($_SESSION['login_user'])){
 	if($_SESSION['login_user']=="student")
 		header("location: student.php"); // Redirecting To Profile Page
-	else
+	else if($_SESSION['login_user']=="admin")
 		header("location: admin.php");
+	else 
+	header("location: signin.php");
+
 }
 ?>
 <!DOCTYPE html>

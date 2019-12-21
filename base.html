@@ -2,34 +2,6 @@
 <html lang="en">
 <head>
   <title>LABs Registration</title>
-  <script type="text/javascript">
-      function time()
-      {
-      var div=document.getElementById('1');
-      var now=new Date();
-      var year,month,date,h,m,s;
-      year=now.getFullYear();
-      month=(now.getMonth()+1);
-      if(month<10)
-        month="0"+month;
-      date=now.getDate();
-      if(date<10)
-        date="0"+date;
-      h=now.getHours();
-      if(h<10)
-        h="0"+h;
-      m=now.getMinutes();
-      if(m<10)
-        m="0"+m;
-      s=now.getSeconds();
-      if(s<10)
-        s="0"+s;
-      var day=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-      div.innerHTML=now.toLocaleString();
-    }
-    window.addEventListener("load",time,false);
-    setInterval(time, 1000)
-    </script>
   <meta charset="utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="images/JUST-Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">

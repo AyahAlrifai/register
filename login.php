@@ -14,7 +14,6 @@ $flag=false;
 
 $conn=mysqli_connect("localhost","root","","labs_registration_system");
 
-
 $q1="select * from student where ID='$username'";
 $res1=mysqli_query($conn,$q1);
 $num1=mysqli_num_rows($res1);
@@ -22,9 +21,6 @@ $num1=mysqli_num_rows($res1);
 $q2="select * from admin where id='$username'";
 $res2=mysqli_query($conn,$q2);
 $num2=mysqli_num_rows($res2);
-
-
-
 
 if($num1==0 and $num2==0)
 	$error="no such record in our database ";
@@ -55,18 +51,14 @@ else if ($num2==1)
 	$pass=$row["password"];
 	if($pass != $password )
 	{
-
 		$error="Username or Password is invalid";
 	}
 	else
 	{
-
 		$_SESSION['login_user']="admin";
-		header("location:signup.php");
+		header("location:admin.php");
 	}
 }
-
-
 }
 }
 ?>
