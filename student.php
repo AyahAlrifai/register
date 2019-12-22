@@ -28,7 +28,7 @@
   		</div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-  				<li><a href="#" style="color:#EDD700">Registered page</a></li>
+          <li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-user"></span> Student page</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
   				<li><a href="index.html"  style="color:#EDD700"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
