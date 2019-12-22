@@ -88,7 +88,7 @@ window.addEventListener("load",start,false);
 <?php
     $symbolerror="";
     $sectionerror="";
-    $omeThingError="";
+    $someThingError="";
     $symbol="";
     $section="";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -109,19 +109,19 @@ window.addEventListener("load",start,false);
         $result=mysqli_query($con,$sql);
         $row=mysqli_fetch_row($result);
         if($row[0]==0){
-          $omeThingError="some thing error";
+          $someThingError="some thing error";
         }
         else {
           $sql="SELECT COUNT(*) FROM student INNER JOIN studentlabs ON student.ID = studentlabs.studentID and studentlabs.labSymbol='$symbol' and studentlabs.Section='$section'";
           $result=mysqli_query($con,$sql);
           $row=mysqli_fetch_row($result);
           if($row[0]==0){
-            $omeThingError="no student Registered in this section";
+            $someThingError="no student Registered in this section";
           }
           else {
             $symbolerror="";
             $sectionerror="";
-            $omeThingError="";
+            $someThingError="";
             header("location:studentFile.php?symbol=$symbol&section=$section");
           }
         }
@@ -171,26 +171,26 @@ $result1 = mysqli_query($database, $q1);
     <hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
 
+<div class="row" style="color: red; margin-top: 1%;text-align: center;"><?php  $msg=$_SESSION["m"]; echo $msg; $_SESSION["m"]=" "; ?></div>
+
+<div class="row" style="color: red; margin-top: 1%;text-align: center;"><?php  $msg=$_SESSION["d"]; echo $msg; $_SESSION["d"]=" "; ?></div>
+
+<div class="row" style="color: red; margin-top: 1%;text-align: center;"><?php  $msg=$_SESSION["u"]; echo $msg; $_SESSION["u"]=" "; ?></div>
+
   <div style="border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;margin-left:5%;margin-right:5%;" >
     <p style="text-align:center;margin-top:3px;">Download Students Info in specific section</p>
-        <form class="form-inline" style="padding:10px;margin-left:20%;margin-right:20%;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form class="form-inline" style="padding:10px;margin-left:20%;margin-right:5%;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
           <label class="control-label" for="symbol">symbol</label>
-          <input type="text" name="symbol" value="">
+          <input type="text" name="symbol" value="" style="color:#2E3951;">
           <label class="control-label" for="section">section</label>
-          <input type="text" name="section" value=""> <input type="submit" name="download" value="download" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
-          <br>
+          <input type="text" name="section" value="" style="color:#2E3951;">
+          <input type="submit" name="download" value="download" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
           <span style="color:red;"><?php echo $symbolerror;?></span>
           <span style="color:red;"><?php echo $sectionerror;?></span>
-          <span style="color:red;padding-right:10%;" id="p2"><?php echo $omeThingError;?></span>
+          <span style="color:red;"><?php echo $someThingError;?></span>
         </form>
     </div>
-
- <div class="row" style="color: red; margin-top: 2%;"><span class="col-sm-3" style="text-align: center;"><?php  $msg=$_SESSION["m"]; echo $msg; $_SESSION["m"]=" "; ?></span></div>
-
-<div class="row" style="color: red; margin-top: 2%;"><span class="col-sm-3" style="text-align: center;"><?php  $msg=$_SESSION["d"]; echo $msg; $_SESSION["d"]=" "; ?></span></div>
-
-<div class="row" style="color: red; margin-top: 2%;"><span class="col-sm-3" style="text-align: center;"><?php  $msg=$_SESSION["u"]; echo $msg; $_SESSION["u"]=" "; ?></span></div>
-
+<br><br>
 <?php
 echo'
     <div class="container" style="margin-left:5% auto;margin-right:5% auto;"><table class="table table-sm text-center" name="labs" id="labs">
@@ -215,7 +215,7 @@ while( $r = mysqli_fetch_row($result1))
 echo '
 <option>'.$r[2].'</option>';
 }
-echo'</select></td><td><input type ="text" value="0" id="Registered" readonly="readonly" ></td><td colspan="2"><input type="image" name="button" src="add.jpg" height="42" width="42"  value="add" id="addButton"></td>
+echo'</select></td><td></td><td colspan="2"><input type="image" name="button" src="add.jpg" height="42" width="42"  value="add" id="addButton"></td>
 </form></tr>';
 $q = "Select * from lab;";
 $result = mysqli_query($database, $q);

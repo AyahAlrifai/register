@@ -1,6 +1,3 @@
 CIS341-3
 Student id	Student name
-114170		Ayah
-114207		rawan
-114364		shatha
 114200		nadeen
