@@ -50,15 +50,11 @@ if ($r2[3]==$Day && $r2[4]==$Time &&$r2[5]==$Hall)
 
 if(!$flag2)
 	{
-	$q = "Update lab set day = '$Day' , time= '$Time' , hall ='$Hall' where symbol = '$Symbol'AND section='$Section';";
+	$q = "Update lab set day = '$Day' , time= '$Time' , hall ='$Hall' where symbol = '$Symbol' && section='$Section';";
 	$result = mysqli_query($database, $q);
 	$updateResult= "One row is updated";
-
-
 	}
 }
-
-
 
 $_SESSION["u"] = $updateResult;
 header("Location:admin.php");
