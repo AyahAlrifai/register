@@ -68,7 +68,7 @@
       </thead>
       <tbody>
     <?php
-    		$id=114200;
+    		$id=$_SESSION["myid"];
     		$conn=mysqli_connect("localhost","root","","labs_registration_system");
 
     		$result=mysqli_query($conn,"select lab.name,studentlabs.labSymbol,studentlabs.section,lab.day,lab.time,lab.hall from studentlabs,lab where studentlabs.labSymbol=lab.symbol and studentlabs.section=lab.section and studentlabs.studentID='$id'");

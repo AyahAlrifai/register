@@ -4,7 +4,7 @@
   $section=$_POST["section"];
   $flag=true;
   $msg="" ;
-  $id=114200;
+  $id=$_SESSION["myid"];
   $conn=mysqli_connect("localhost","root","","labs_registration_system");
   $result=mysqli_query($conn,"select symbol,section from lab where symbol='$symbol' and section='$section'");
   if(!(mysqli_num_rows($result) > 0)){
