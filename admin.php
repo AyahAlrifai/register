@@ -164,7 +164,7 @@ $result1 = mysqli_query($database, $q1);
           <li><a href="#"  style="color:#EDD700"><span class="glyphicon glyphicon-user"></span> admin page</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="signin.php"  style="color:#EDD700"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><a href="index.html"  style="color:#EDD700"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
     </div>
