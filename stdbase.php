@@ -41,7 +41,7 @@
   	    	else{
   	    		$sql=mysqli_query($conn,"insert into studentlabs values ('$id','$symbol','$section')");
 		  		$sql2=mysqli_query($conn,"update lab set Registered=Registered+1 where symbol='$symbol' and section='$section'");
-		  		$msg="";
+          $msg="";
   	    	}
   	    }
 
