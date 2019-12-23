@@ -45,7 +45,7 @@
   </div>
 	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
-<span><?php echo $done;?></span>
+<span style="color:red"><?php echo $done;?></span>
 <div style="  border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;width:500px;margin:10% auto;" >
   <h2 style="text-align:center;"> Sign Up </h2>
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
@@ -81,6 +81,7 @@
       <input type="reset" class="btn btn-default" value="clear" style="color:#2E3951;font-weight:bold;">
       <br><br>
       <p>Already have an account? <a href="signin.php">Login here</a>.</p>
+      <span style="color:red"><?php echo $notdone;?></span>
       <br><br>
     </div>
   </form>

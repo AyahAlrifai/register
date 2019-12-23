@@ -74,10 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 		else
 		{
-			$done='<div style="text-align:center" class="alert alert-danger alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            some thing<strong> wrong</strong>
-            </div>';
+			$notdone='some thing<strong> wrong</strong>';
 		}
 
 	}
