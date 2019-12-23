@@ -31,8 +31,10 @@ if($Hall==$value)
 $flag=true;
 
 if(!$flag)
-$updateResult="there is no lab with this name";
-
+$updateResult='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				there is no lab with this name
+		</div>';
 else
 {
 
@@ -43,7 +45,10 @@ while( $r2 = mysqli_fetch_row($result2))
 if ($r2[3]==$Day && $r2[4]==$Time &&$r2[5]==$Hall)
 	{
 	$flag2=true;
-	$updateResult= "This Hall is reserved at this time";
+		$updateResult='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						This Hall is reserved at this time
+				</div>';
 
 	}
 }
@@ -52,7 +57,10 @@ if(!$flag2)
 	{
 	$q = "Update lab set day = '$Day' , time= '$Time' , hall ='$Hall' where symbol = '$Symbol' && section='$Section';";
 	$result = mysqli_query($database, $q);
-	$updateResult= "One row is updated";
+	$updateResult='<div style="text-align:center" class="alert alert-success alert-dismissible">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				One row is updated
+				</div>';
 	}
 }
 

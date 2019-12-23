@@ -8,13 +8,19 @@
   $conn=mysqli_connect("localhost","root","","labs_registration_system");
   $result=mysqli_query($conn,"select symbol,section from lab where symbol='$symbol' and section='$section'");
   if(!(mysqli_num_rows($result) > 0)){
-  	$msg="this course or section doesnt exist";
+    $msg='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          this course or section doesnt exist
+          </div>';
   	$flag=false;
   }
   else{
     $result=mysqli_query($conn,"select labSymbol from studentlabs where studentID='$id' and labSymbol='$symbol'");
     if((mysqli_num_rows($result) > 0)){
-  	   $msg="you already register this course";
+      $msg='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            you already register this course
+            </div>';
   	   $flag=false;
   	}
   	else{
@@ -27,7 +33,11 @@
 			while($row=mysqli_fetch_row($result)){
 
 				if($row[0]==$time && $row[1]==$day)
-                    {$msg="time conflict";
+                    {
+                      $msg='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            time conflict
+                            </div>';
                       $flag=false;}
 
 		    }
@@ -37,11 +47,17 @@
   	    	$result=mysqli_query($conn,"select hall.Capacity,lab.Registered from hall,lab where lab.hall=hall.hallName and lab.symbol='$symbol' and lab.section='$section' ");
   	    	$row=mysqli_fetch_row($result);
   	    	if($row[1]==$row[0])
-  	    		$msg="closed section";
+          $msg='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                closed section
+                </div>';
   	    	else{
   	    		$sql=mysqli_query($conn,"insert into studentlabs values ('$id','$symbol','$section')");
 		  		$sql2=mysqli_query($conn,"update lab set Registered=Registered+1 where symbol='$symbol' and section='$section'");
-          $msg="";
+          $msg='<div style="text-align:center" class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                You registered successfully
+                </div>';
   	    	}
   	    }
 

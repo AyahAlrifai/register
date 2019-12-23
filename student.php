@@ -37,6 +37,7 @@
     </div>
   	<hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
+<span><?php $msg=$_SESSION["m"]; echo $msg; $_SESSION["m"]=" "; ?></span>
 <div style="border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;margin:5%;" >
   <p style="text-align:center;margin-top:3px;">Add new cource</p>
       <form class="form-inline" style="padding:10px;margin-left:20%;margin-right:20%;" action="stdbase.php" method="post">
@@ -47,11 +48,6 @@
         <input type="submit" name="register" value="register" id="R1" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
         <br>
       </form>
-      <div class="row" style="color: red; margin-top: 2%;">
-        <span class="col-sm-3" style="text-align: center;">
-          <?php $msg=$_SESSION["m"]; echo $msg; $_SESSION["m"]=" "; ?>
-        </span>
-      </div>
 </div>
 <div class='container'>
       <table class='table table-sm text-center'>

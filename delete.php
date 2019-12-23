@@ -29,12 +29,16 @@ if(!$r2[6] )
 $q = "delete from lab where symbol= '$arr[0]' AND section='$arr[1]';";
 
 $result = mysqli_query($database, $q);
-$deleteResult="One row is deleted";
+$deleteResult='<div style="text-align:center" class="alert alert-success alert-dismissible">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      One row is deleted
+      </div>';
 }
 else
-$deleteResult="This lab cannot be deleted because there are students enrolled in it.";
-
-
+$deleteResult='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      This lab cannot be deleted because there are students enrolled in it
+      </div>';
 
 $_SESSION["d"] = $deleteResult;
 print_r($_SESSION);

@@ -92,14 +92,22 @@ window.addEventListener("load",start,false);
     $symbol="";
     $section="";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
       if (empty($_POST["symbol"]))
-        $symbolerror = "Symbol is required";
+      $symbolerror='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+  							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Symbol is required
+  					</div>';
      else
     	 $symbol=$_POST["symbol"];
        if (empty($_POST["section"]))
-        $sectionerror = "Section is required";
+       $sectionerror='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+   							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                 Section is required
+   					</div>';
        else
     	   $section=$_POST["section"];
+
       if($symbolerror=="" && $sectionerror=="")
       {
         $con=mysqli_connect("localhost","root","","labs_registration_system");
@@ -109,14 +117,20 @@ window.addEventListener("load",start,false);
         $result=mysqli_query($con,$sql);
         $row=mysqli_fetch_row($result);
         if($row[0]==0){
-          $someThingError="some thing error";
+          $someThingError='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+      							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    some thing error
+      					</div>';
         }
         else {
           $sql="SELECT COUNT(*) FROM student INNER JOIN studentlabs ON student.ID = studentlabs.studentID and studentlabs.labSymbol='$symbol' and studentlabs.Section='$section'";
           $result=mysqli_query($con,$sql);
           $row=mysqli_fetch_row($result);
           if($row[0]==0){
-            $someThingError="no student Registered in this section";
+          $someThingError='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+        							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      no student Registered in this section
+        					</div>';
           }
           else {
             $symbolerror="";
@@ -170,13 +184,12 @@ $result1 = mysqli_query($database, $q1);
     </div>
     <hr style="border: 1.5px solid #EDD700;border-radius: 5px;padding:0px;margin:0px">
 </nav>
-
-<div class="row" style="color: red; margin-top: 1%;text-align: center;"><?php  $msg=$_SESSION["m"]; echo $msg; $_SESSION["m"]=" "; ?></div>
-
-<div class="row" style="color: red; margin-top: 1%;text-align: center;"><?php  $msg=$_SESSION["d"]; echo $msg; $_SESSION["d"]=" "; ?></div>
-
-<div class="row" style="color: red; margin-top: 1%;text-align: center;"><?php  $msg=$_SESSION["u"]; echo $msg; $_SESSION["u"]=" "; ?></div>
-
+<span><?php echo $symbolerror;?></span>
+<span><?php echo $sectionerror;?></span>
+<span><?php echo $someThingError;?></span>
+<span><?php  $msg=$_SESSION["m"]; echo $msg; $_SESSION["m"]=" "; ?></span>
+<span><?php  $msg=$_SESSION["d"]; echo $msg; $_SESSION["d"]=" "; ?></span>
+<span><?php  $msg=$_SESSION["u"]; echo $msg; $_SESSION["u"]=" "; ?></span>
   <div style="border-radius: 60px;border-color: #EDD700;color: #EDD700;background-color:#2E3951;border-width: 3px;border-style: solid;margin-left:5%;margin-right:5%;" >
     <p style="text-align:center;margin-top:3px;">Download Students Info in specific section</p>
         <form class="form-inline" style="padding:10px;margin-left:20%;margin-right:5%;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -185,9 +198,6 @@ $result1 = mysqli_query($database, $q1);
           <label class="control-label" for="section">section</label>
           <input type="text" name="section" value="" style="color:#2E3951;">
           <input type="submit" name="download" value="download" style="background-color:#EDD700;color:#2E3951;font-weight:bold;">
-          <span style="color:red;"><?php echo $symbolerror;?></span>
-          <span style="color:red;"><?php echo $sectionerror;?></span>
-          <span style="color:red;"><?php echo $someThingError;?></span>
         </form>
     </div>
 <br><br>

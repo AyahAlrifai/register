@@ -62,18 +62,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$res=mysqli_query($conn,$q);
 		if($res)
 		{
-			$done="You Have Registered Successfully  ";
+      $done='<div style="text-align:center" class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              You Have Registered <strong>Successfully</strong> <a href="signin.php" class="alert-link">click here to sign in</a>.
+            </div>';
 			$name="";
 			$age="";
 			$id="";
 			$pass1="";
 			$pass2="";
-			header("location:signin.php");
 		}
 		else
 		{
-			$done="Something Wrong ";
-
+			$done='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            some thing<strong> wrong</strong>
+            </div>';
 		}
 
 	}

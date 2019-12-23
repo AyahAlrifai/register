@@ -25,8 +25,10 @@ while( $r2 = mysqli_fetch_row($result2))
 
 if ($r2[3]==$Day && $r2[4]==$Time &&$r2[5]==$Hall)
 	{
-	$insertResult="This Hall is reserved at this time";
-
+		$insertResult='<div style="text-align:center" class="alert alert-danger alert-dismissible">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					This Hall is reserved at this time
+					</div>';
 	$flag=1;
 	}
 }
@@ -34,7 +36,10 @@ if(!$flag)
 	{
 	$q = "Insert Into lab values ('$Symbol','$Name','$Section','$Day','$Time','$Hall','0');";
 	$result = mysqli_query($database, $q);
-	$insertResult="One row is inserted";
+	$insertResult='<div style="text-align:center" class="alert alert-success alert-dismissible">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				One row is inserted
+				</div>';
 	}
 
 $_SESSION["m"] = $insertResult;
