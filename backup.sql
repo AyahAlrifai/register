@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` VALUES (112233,'Admin.112233');
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+/*!40000 ALTER h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

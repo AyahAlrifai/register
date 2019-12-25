@@ -110,7 +110,7 @@ window.addEventListener("load",start,false);
 
       if($symbolerror=="" && $sectionerror=="")
       {
-        $con=mysqli_connect("h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	","qygo0fj96x0bqqs1	","tldlxjueyhqci5v1","jxmuczgeixk2nwzx");
+        $con=mysqli_connect('h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com','qygo0fj96x0bqqs1','tldlxjueyhqci5v1','jxmuczgeixk2nwzx');
         if(!$con)
           die("not connected".mysqli_connect_error());
         $sql="SELECT count(*) FROM lab where symbol='$symbol' and section='$section'";
@@ -152,7 +152,7 @@ window.addEventListener("load",start,false);
   ?>
 
 <?php
-if(!($database=mysqli_connect("h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","qygo0fj96x0bqqs1","tldlxjueyhqci5v1","jxmuczgeixk2nwzx")))
+if(!($database=mysqli_connect('h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com','qygo0fj96x0bqqs1','tldlxjueyhqci5v1','jxmuczgeixk2nwzx')))
 
 die("Could not connect to database </body></html>");
 
