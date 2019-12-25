@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]))
 	   $invalidError="password must be at least 8 characters ,upper/lower letters,digits and special characters";
 
-	else if($_POST["password1"] != $_POST["password2"] and  preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) )
+	else if($_POST["password1"] != $_POST["password2"] &&  preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) )
 	{
 		if($_POST["password2"]=="")
 			{
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$pass2="";
 			}
 	}
-	else if($_POST["password1"] == $_POST["password2"] and  preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) )
+	else if($_POST["password1"] == $_POST["password2"] &&  preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) )
 	{
 		$pass1=$_POST["password1"];
 		$pass2=$_POST["password2"];
