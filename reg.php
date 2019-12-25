@@ -1,19 +1,6 @@
 <?php
-$IdError="";
-$NameError="";
-$invalidError="";
-$notMatchError="";
-$flag1=false;
-$flag2=false;
-
-$name="";
-$age="";
-$id="";
-$pass1="";
-$pass2="";
-$done="";
-$error="GGG";
-$temp="";
+$IdError="";$NameError="";$invalidError="";$notMatchError="";$flag1=false;$flag2=false;
+$notdone="";$name="";$age="";$id="";$pass1="";$pass2="";$done="";$error="";$temp="";
 $temp="<script>document.writeln(val);</script>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,29 +14,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    else
 	   $name=$_POST["name"];
 
-	if($_POST["password1"] != $_POST["password2"] )
+   if (!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]))
+	   $invalidError="password must be at least 8 characters ,upper/lower letters,digits and special characters";
+
+	else if($_POST["password1"] != $_POST["password2"] and  preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) )
 	{
-		if( preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) and $_POST["password2"]=="")
+		if($_POST["password2"]=="")
 			{
 				$notMatchError="confirm your password";
 				$pass1=$_POST["password1"];
 				$pass2="";
 			}
-		else if (preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) and $_POST["password2"]!="")
+		else if ($_POST["password2"]!="")
 			{
 				$notMatchError="does not match";
 				$pass1=$_POST["password1"];
 				$pass2="";
 			}
-
-		else if(!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]))
-		{
-			$invalidError="password must be at least 8 characters ,upper/lower letters,digits and special characters";
-			$pass1="";
-			$pass2="";
-		}
 	}
-	else
+	else if($_POST["password1"] == $_POST["password2"] and  preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#",$_POST["password1"]) )
 	{
 		$pass1=$_POST["password1"];
 		$pass2=$_POST["password2"];
@@ -74,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 		else
 		{
-			$notdone='some thing<strong> wrong</strong>';
+			$notdone='<strong> Something Wrong</strong>';
 		}
 
 	}
