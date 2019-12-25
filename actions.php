@@ -32,8 +32,6 @@ else
 {
 $arr=array();
 $i=0;
-
-
 $token = strtok($_POST["button2"], "-");
 while ($token !== false)
 {
