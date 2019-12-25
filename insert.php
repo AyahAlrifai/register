@@ -13,7 +13,7 @@ $Time=$_POST["addTime"].':00';
 $Hall=$_POST["addHall"];
 
 
-$database=mysqli_connect('localhost','root','','labs_registration_system');
+$database=mysqli_connect('h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com','qygo0fj96x0bqqs1','tldlxjueyhqci5v1','jxmuczgeixk2nwzx');
 if(!$database)
 die("Could not connect to database ");
 $q= "Select * from lab;";

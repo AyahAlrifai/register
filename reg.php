@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$age=$_POST["age"];
 	if($notMatchError == "" and $invalidError == "" and $NameError == "" and $IdError == "" and $_POST["password1"]!="")
 	{
-		$conn=mysqli_connect("localhost","root","","labs_registration_system");
+		$conn=mysqli_connect("h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","qygo0fj96x0bqqs1","tldlxjueyhqci5v1","jxmuczgeixk2nwzx");
 		$q="insert into student values ('$id','$name','$pass1','$age')";
 		$res=mysqli_query($conn,$q);
 		if($res)

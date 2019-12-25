@@ -5,7 +5,7 @@
   $flag=true;
   $msg="" ;
   $id=$_SESSION["myid"];
-  $conn=mysqli_connect("localhost","root","","labs_registration_system");
+  $conn=mysqli_connect("h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","qygo0fj96x0bqqs1","tldlxjueyhqci5v1","jxmuczgeixk2nwzx");
   $result=mysqli_query($conn,"select symbol,section from lab where symbol='$symbol' and section='$section'");
   if(!(mysqli_num_rows($result) > 0)){
     $msg='<div style="text-align:center" class="alert alert-danger alert-dismissible">

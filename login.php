@@ -12,7 +12,7 @@ $password = $_POST['password1'];
 // mysqli_connect() function opens a new connection to the MySQL server.
 $flag=false;
 
-$conn=mysqli_connect("localhost","root","","labs_registration_system");
+$conn=mysqli_connect("h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","qygo0fj96x0bqqs1","tldlxjueyhqci5v1","jxmuczgeixk2nwzx");
 
 $q1="select * from student where ID='$username'";
 $res1=mysqli_query($conn,$q1);
