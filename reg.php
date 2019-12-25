@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}
 		else
 		{
-			$notdone='<strong> Something Wrong</strong>';
+			$notdone='<strong>Invalid id</strong>';
 		}
 
 	}
