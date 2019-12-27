@@ -5,7 +5,7 @@
   $flag=true;
   $msg="" ;
   $id=$_SESSION["myid"];
-  $conn=mysqli_connect("h40lg7qyub2umdvb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","qygo0fj96x0bqqs1","tldlxjueyhqci5v1","jxmuczgeixk2nwzx");
+  $conn=mysqli_connect('gp96xszpzlqupw4k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306','s65zogn0z3wxrq0a','dkiqhhx8sj4doabh','rlii1q7s8y1oeop8');
   $result=mysqli_query($conn,"select symbol,section from lab where symbol='$symbol' and section='$section'");
   if(!(mysqli_num_rows($result) > 0)){
     $msg='<div style="text-align:center" class="alert alert-danger alert-dismissible">
