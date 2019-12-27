@@ -55,6 +55,7 @@
         <label>  Student Id</label>&nbsp<span style="color:red">*</span>
         <input type="text" name="id" value="<?= $id ?>" class="form-control" style="background-color:#FFFFFF;">
         <span style="color:red"> <?php echo $IdError;?></span>
+        <span style="color:red"><?php echo $notdone;?></span>
       </div>
       <div class="form-group">
         <label> Name </label>&nbsp<span style="color:red">*</span>
@@ -81,7 +82,6 @@
       <input type="reset" class="btn btn-default" value="clear" style="color:#2E3951;font-weight:bold;">
       <br><br>
       <p>Already have an account? <a href="signin.php">Login here</a>.</p>
-      <span style="color:red"><?php echo $notdone;?></span>
       <br><br>
     </div>
   </form>
